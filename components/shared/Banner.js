@@ -1,13 +1,18 @@
+
+
 const Banner=()=>{
     return(<div>
 <section className="fj-hero">
         <div className="fj-hero-wrapper row">
           <div className="hero-left col-md-6">
             <h1 className="white hero-title">
-              Hey I'm Daniel. Experienced full stack developer
+              Daniel Hagos
             </h1>
             <h2 className="white hero-subtitle">
-              Check my portfolio and Youtube videos
+             ECE and fullstack Engineer!
+            </h2>
+            <h2 className="white hero-subtitle">
+             Check my portfolio and youtube videos!
             </h2>
             <div className="button-container">
               <a href="" className="btn btn-main bg-blue ttu">
@@ -18,10 +23,10 @@ const Banner=()=>{
           <div className="hero-right col-md-6">
             <div className="hero-image-container">
               <a className="grow hero-link">
-                <img
-                  className="hero-image"
-                  src="https://www.syspoly.co.in/wp-content/uploads/2015/06/mobile-app-development.png"
-                ></img>
+                <div>
+                <img src=""/>
+
+                </div>
               </a>
             </div>
           </div>

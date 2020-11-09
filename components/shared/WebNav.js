@@ -44,8 +44,8 @@ const WebNav =()=>{
 
 
               <li className="nav-item mr-3">
-                <WebLink className="nav-link" href="/cv">
-                  Cv
+                <WebLink className="nav-link" href="/resume">
+                  Resume
                 </WebLink>
               </li>
             </ul>

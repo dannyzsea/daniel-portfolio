@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import WebNav from "../components/shared/WebNav";
 import Banner from "../components/shared/Banner";
 
+
 function MyApp({ Component, pageProps }) {
  const  isHomePage=()=>Component.name==="Home";
   return (
