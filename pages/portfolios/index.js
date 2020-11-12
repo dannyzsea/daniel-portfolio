@@ -1,5 +1,6 @@
 import axios from "axios";
 import PortfolioCard from "../../components/shared/portfolios/PortfolioCard";
+import Link from 'next/link';
 const fetchPortfolios = () => {
   const query = `
     query Portfolios {
@@ -37,7 +38,16 @@ const fetchPortfolios = () => {
             { 
                portfolios && portfolios.map(portfolio =>
             <div key={portfolio._id} className="col-md-4">
+
+
+            <Link 
+             href='/portfolios/[id]'
+                as={`/portfolios/${portfolio._id}`}>
+            <a className="card-link">
               <PortfolioCard portfolio={portfolio} />
+              </a>
+              </Link>
+
             </div>
 
              ) }
