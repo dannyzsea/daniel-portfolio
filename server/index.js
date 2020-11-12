@@ -1,5 +1,6 @@
 const express = require('express');
 const next = require('next');
+const cors =require("cors");
 //GraphQL
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
@@ -7,6 +8,7 @@ const { buildSchema } = require('graphql');
 
 
 const PORT = process.env.PORT || 3000;
+
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
 const handle = app.getRequestHandler();
@@ -69,7 +71,7 @@ app.prepare().then(() => {
  }
  type Query {
    hello: String
-   portfolio:Portfolio
+   portfolio(id:ID):Portfolio
    portfolios:[Portfolio]
  }
 `);
@@ -79,10 +81,12 @@ const root = {
 hello: () => {
  return 'Hello World!'
 },
-portfolio:()=>{
-return data.portfolios[0]
+portfolio:({id})=>{
+  const portfolio=data.portfolios.find(p=>p._id===id)
+return portfolio;
 },
 portfolios:()=>{
+  // args.id
 return data.portfolios;
 }
 }
@@ -97,7 +101,7 @@ graphiql:true
 
 }))
 
-
+server.use(cors());
   server.all('*', (req, res) => {
     return handle(req, res);
   })

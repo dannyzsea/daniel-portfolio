@@ -2,9 +2,7 @@
 import Portfolios from "../pages/portfolios/index";
 const Home = () => (
     <>
-      
-     <Portfolios/>
-      
+     <Portfolios/>   
     </>
   );
   
