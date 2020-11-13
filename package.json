@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "proxy":"http://lcoalhost:3000",
+  "proxy": "http://lcoalhost:3000",
   "scripts": {
     "dev": "nodemon --watch server server/index.js",
     "build": "next build",
@@ -12,6 +12,7 @@
   "author": "Daniel Hagos ECE",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^2.10.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",

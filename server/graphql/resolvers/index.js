@@ -26,7 +26,7 @@ const data = {
         _id: "sadcxv9",
         title: 'Work in USA',
         company: 'WhoKnows',
-        companyWebsite: 'www.google.com',
+        companyWebsite: 'https://hulu-clone-cfdbe.firebaseapp.com/',
         location: 'USA, Montana',
         jobTitle: 'Housekeeping',
         description: 'So much responsibility....Overloaaaaaad',
@@ -36,15 +36,25 @@ const data = {
     ]
   }
   
-  exports.portfolioResolvers = {
+  exports.portfolioQueries = {
     hello: () => {
       return 'Hello World!'
     },
-    portfolio: ({id}) => {
+    portfolio: (root, {id}) => {
       const portfolio = data.portfolios.find(p => p._id === id)
       return portfolio;
     },
     portfolios: () => {
       return data.portfolios
+    }
+    
+  }
+  exports.portfolioMutations = {
+    createPortfolio: (root,{input}) => {
+      const _id = require('crypto').randomBytes(10).toString('hex');
+      const newPortfolio = {...input};
+      newPortfolio._id = _id;
+      data.portfolios.push(newPortfolio);
+      return newPortfolio;
     }
   }
