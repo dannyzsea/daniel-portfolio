@@ -1,6 +1,11 @@
 import axios from "axios";
+import { useState } from 'react';
 import PortfolioCard from "../../components/shared/portfolios/PortfolioCard";
 import Link from 'next/link';
+
+
+
+
 const fetchPortfolios = () => {
   const query = `
     query Portfolios {
@@ -20,7 +25,14 @@ const fetchPortfolios = () => {
     .then(({data: graph}) => graph.data)
     .then(data => data.portfolios)
 }
-  const Portfolios = ({portfolios})=>{
+ const Portfolios = ({portfolios}) => {
+
+
+  const createPortfolio =  () => {
+
+    alert("created Portfolio");
+  }
+
 
       return(
         <>
@@ -31,6 +43,10 @@ const fetchPortfolios = () => {
                 <h1>Portfolios</h1>
               </div>
             </div>
+            <button className="btn btn-warning" onClick={()=>createPortfolio()}
+            className="btn btn-primary">
+              Create portfolio
+            </button>
           </section>
           
           <section className="pb-5">
@@ -47,7 +63,7 @@ const fetchPortfolios = () => {
               <PortfolioCard portfolio={portfolio} />
               </a>
               </Link>
-
+            
             </div>
 
              ) }
@@ -59,8 +75,8 @@ const fetchPortfolios = () => {
       )
      
   }
-  Portfolios.getInitialProps = async ()=>{
+  Portfolios.getInitialProps = async () => {
     const portfolios = await fetchPortfolios();
-    return { portfolios };
+    return { data: { portfolios }};
   }
   export default Portfolios;
