@@ -1,10 +1,36 @@
 import axios from "axios";
-import { useState } from 'react';
+import React,{ useState } from 'react';
 import PortfolioCard from "../../components/shared/portfolios/PortfolioCard";
 import Link from 'next/link';
 
-
-
+const graphCreatePortfolio = () => {
+  const query = `
+    mutation CreatePortfolio {
+      createPortfolio(input: {
+        title: "New Job"
+        company: "New Company"
+        companyWebsite: "New Website"
+        location: "New Location"
+        jobTitle: "New Job Title"
+        description: "New Desc"
+        startDate: "12/12/2012"
+        endDate: "14/11/2013"
+      }) {
+        _id,
+        title,
+        company,
+        companyWebsite
+        location
+        jobTitle
+        description
+        startDate
+        endDate
+      }
+    }`;
+  return axios.post('http://localhost:3000/graphql', { query })
+    .then(({data: graph}) => graph.data)
+    .then(data => data.createPortfolio)
+}
 
 const fetchPortfolios = () => {
   const query = `
@@ -25,12 +51,18 @@ const fetchPortfolios = () => {
     .then(({data: graph}) => graph.data)
     .then(data => data.portfolios)
 }
- const Portfolios = ({portfolios}) => {
 
 
-  const createPortfolio =  () => {
 
-    alert("created Portfolio");
+const Portfolios = ({data}) => {
+
+const [ portfolios, setPortfolios] = useState(data.portfolios);
+
+  const createPortfolio = async () => {
+
+    const newPortfolio = await graphCreatePortfolio();
+    const newPortfolios = [...portfolios, newPortfolio];
+    setPortfolios(newPortfolios);
   }
 
 
@@ -43,9 +75,9 @@ const fetchPortfolios = () => {
                 <h1>Portfolios</h1>
               </div>
             </div>
-            <button className="btn btn-warning" onClick={()=>createPortfolio()}
+            <button onClick={createPortfolio}
             className="btn btn-primary">
-              Create portfolio
+              Create Portfolio
             </button>
           </section>
           
