@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {GET_PORTFOLIO} from "../../apollo/queries";
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
+import withApollo from '../../hoc/withApollo';
+import { getDataFromTree } from '@apollo/react-ssr';
+
 const PortfolioDetail=({query})=>{
   const [portfolio, setPortfolio] = useState(null);
   const [ getPortfolio, {loading, data}] = useLazyQuery(GET_PORTFOLIO);
