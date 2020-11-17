@@ -1,12 +1,19 @@
+
+import ApolloClient from "apollo-boost";
+import {ApolloProvider} from "@apollo/react-hooks";
 import "../styles/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import WebNav from "../components/shared/WebNav";
 import Banner from "../components/shared/Banner";
+import "isomorphic-unfetch";
 
-
+const client =new ApolloClient({
+  uri:"http://localhost:3000/graphql"
+})
 function MyApp({ Component, pageProps }) {
  const  isHomePage=()=>Component.name==="Home";
   return (
+    <ApolloProvider client={client}>
     <div className="portfolio-app">
     <WebNav/> 
     {isHomePage() && <Banner/>} 
@@ -22,6 +29,7 @@ function MyApp({ Component, pageProps }) {
       </footer>
       } 
 </div>
+</ApolloProvider>
     );
 }
 export default MyApp;

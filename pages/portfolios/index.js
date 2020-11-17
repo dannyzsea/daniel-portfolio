@@ -1,20 +1,36 @@
 import axios from "axios";
-import React,{ useState } from 'react';
+import { useState, useEffect } from 'react';
 import PortfolioCard from "../../components/shared/portfolios/PortfolioCard";
+import { useLazyQuery, useMutation } from '@apollo/react-hooks';
+import { GET_PORTFOLIOS, CREATE_PORTFOLIO } from '../../apollo/queries';
 import Link from 'next/link';
 
-const graphCreatePortfolio = () => {
+
+
+const graphDeletePortfolio = (id) => {
   const query = `
-    mutation CreatePortfolio {
-      createPortfolio(input: {
-        title: "New Job"
-        company: "New Company"
-        companyWebsite: "New Website"
-        location: "New Location"
-        jobTitle: "New Job Title"
-        description: "New Desc"
-        startDate: "12/12/2012"
-        endDate: "14/11/2013"
+    mutation DeletePortfolio {
+      deletePortfolio(id: "${id}")
+    }
+  `
+
+  return axios.post('http://localhost:3000/graphql', { query })
+    .then(({data: graph}) => graph.data)
+    .then(data => data.deletePortfolio)
+}
+
+const graphUpdatePortfolio = (id) => {
+  const query = `
+    mutation UpdatePortfolio {
+      updatePortfolio(id: "${id}",input: {
+        title: "UPDATE Job"
+        company: "UPDATE Company"
+        companyWebsite: "UPDATE Website"
+        location: "UPDATE Location"
+        jobTitle: "UPDATE Job Title"
+        description: "UPDATE Desc"
+        startDate: "12/12/2012 UPDATE"
+        endDate: "14/11/2013 UPDATE"
       }) {
         _id,
         title,
@@ -29,43 +45,40 @@ const graphCreatePortfolio = () => {
     }`;
   return axios.post('http://localhost:3000/graphql', { query })
     .then(({data: graph}) => graph.data)
-    .then(data => data.createPortfolio)
-}
-
-const fetchPortfolios = () => {
-  const query = `
-    query Portfolios {
-      portfolios {
-        _id
-        title
-        company
-        companyWebsite
-        location
-        jobTitle
-        description
-        endDate
-        startDate
-      }
-    }`;
-  return axios.post("http://localhost:3000/graphql", { query })
-    .then(({data: graph}) => graph.data)
-    .then(data => data.portfolios)
+    .then(data => data.updatePortfolio)
 }
 
 
+const Portfolios = () => {
+  const [portfolios, setPortfolios] = useState([]);
+  const [getPortfolios, {loading, data}] = useLazyQuery(GET_PORTFOLIOS);
+  const [createPortfolio, {data: dataC}] = useMutation(CREATE_PORTFOLIO);
 
-const Portfolios = ({data}) => {
+  useEffect(() => {
+    getPortfolios();
+  }, [])
 
-const [ portfolios, setPortfolios] = useState(data.portfolios);
 
-  const createPortfolio = async () => {
-
-    const newPortfolio = await graphCreatePortfolio();
-    const newPortfolios = [...portfolios, newPortfolio];
-    setPortfolios(newPortfolios);
+  if (data && data.portfolios.length > 0 && portfolios.length === 0) {
+    setPortfolios(data.portfolios);
   }
 
+  if (loading) { return 'Loading...' };
 
+ const updatePortfolio= async (id)=>{
+  const updatedPortfolio = await graphUpdatePortfolio(id);
+  const index = portfolios.findIndex(p => p._id === id);
+  const newPortfolios = portfolios.slice();
+  newPortfolios[index] = updatedPortfolio;
+  setPortfolios(newPortfolios);
+ }
+ const deletePortfolio = async (id) => {
+  const deletedId = await graphDeletePortfolio(id);
+  const index = portfolios.findIndex(p => p._id === deletedId);
+  const newPortfolios = portfolios.slice();
+  newPortfolios.splice(index, 1);
+  setPortfolios(newPortfolios);
+}
       return(
         <>
   
@@ -85,7 +98,7 @@ const [ portfolios, setPortfolios] = useState(data.portfolios);
             <div className="row">
             { 
                portfolios && portfolios.map(portfolio =>
-            <div key={portfolio._id} className="col-md-4">
+            <div key ={portfolio._id} className ="col-md-4">
 
 
             <Link 
@@ -95,7 +108,14 @@ const [ portfolios, setPortfolios] = useState(data.portfolios);
               <PortfolioCard portfolio={portfolio} />
               </a>
               </Link>
-            
+              <button
+                className="btn btn-warning"
+                onClick={() => updatePortfolio(portfolio._id)}>Update Portfolio</button>
+
+                
+                <button
+                className="btn btn-danger"
+                onClick={() => deletePortfolio(portfolio._id)}>Delete Portfolio</button>
             </div>
 
              ) }
@@ -105,10 +125,8 @@ const [ portfolios, setPortfolios] = useState(data.portfolios);
          
       </>
       )
+    
      
   }
-  Portfolios.getInitialProps = async () => {
-    const portfolios = await fetchPortfolios();
-    return { data: { portfolios }};
-  }
+   
   export default Portfolios;
