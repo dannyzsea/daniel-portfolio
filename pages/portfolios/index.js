@@ -58,10 +58,10 @@ const Portfolios = () => {
     getPortfolios();
   }, [])
 
-
   if (data && data.portfolios.length > 0 && portfolios.length === 0) {
     setPortfolios(data.portfolios);
   }
+ 
 
   if (loading) { return 'Loading...' };
 
