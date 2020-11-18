@@ -58,7 +58,7 @@ const PortfolioDetail=({query})=>{
 }
 PortfolioDetail.getInitialProps = async ({query})=>{
     const portfolio = await fetchPortfolioById(query.id)
-    return {portfolio};
+    // return {portfolio};
     return {query};
 }
 export default PortfolioDetail;
