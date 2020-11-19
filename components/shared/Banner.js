@@ -8,25 +8,26 @@ const Banner=()=>{
             <h1 className="white hero-title">
               Daniel Hagos
             </h1>
+            <div className="hero-image-container">
+              <a className="grow hero-link">
+              <div className="fj-hero-avatar"></div>
+              </a>
+            </div>
             <h2 className="white hero-subtitle">
              ECE and fullstack Engineer!
             </h2>
-            <h2 className="white hero-subtitle">
+           
+          </div>
+          
+          
+        
+          <div className="hero-right col-md-6">
+          <h2 className="white hero-subtitle">
              Check my portfolio and youtube videos!
             </h2>
             <div className="button-container">
               <a href="" className="btn btn-main bg-blue ttu">
                 See my work
-              </a>
-            </div>
-          </div>
-          <div className="hero-right col-md-6">
-            <div className="hero-image-container">
-              <a className="grow hero-link">
-                <div>
-                <img src=""/>
-
-                </div>
               </a>
             </div>
           </div>

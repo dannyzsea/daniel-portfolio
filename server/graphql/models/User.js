@@ -9,12 +9,23 @@ class User {
   
       return this.Model.create(signUpData);
     }
-    signIn() {
-      return 'Signing In...';
+    async signIn(signInData, ctx) {
+      try {
+        const user = await ctx.authenticate(signInData);
+        
+      return user;
+      } catch(error) {
+        return error;
+      }
     }
   
-    signOut() {
-      return 'Signing Out...';
+    signOut(ctx) {
+      try {
+        ctx.logout();
+        return true;
+      } catch(e) {
+        return false;
+      }
     }
   }
   

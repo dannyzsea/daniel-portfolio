@@ -14,7 +14,7 @@ const WebNav =()=>{
 <div className="navbar-wrapper">
 <nav className="navbar navbar-expand-lg navbar-dark fj-mw9">
           <WebLink className="navbar-brand mr-3 font-weight-bold" href="/">
-            DanielHagos
+           JavaIsland!
           </WebLink>
           <button
             className="navbar-toggler"

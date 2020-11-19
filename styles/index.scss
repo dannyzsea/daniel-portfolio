@@ -13,7 +13,7 @@ $gray-80: #343a40 !default;
 $gray-90: #212529 !default;
 
 $black: #000 !default;
-$black-navigation: #141618;
+$black-navigation: #001f3f;
 
 $primary: #18bc9c !default;
 $secondary: #2c3e50 !default;
@@ -235,7 +235,7 @@ html {
   align-items: center;
   width: 100%;
   min-height: 50vh;
-  background-image: linear-gradient(170deg, #eb790f96 0%, #3f2812 100%);
+  background-image: linear-gradient(170deg, #001f3f98 0%, #001f3f 100%);
 
   background-size: cover;
   background-position: top;
@@ -249,7 +249,7 @@ html {
 
     .hero-right {
       padding-left: 110px;
-      justify-content: center;
+      justify-content: right;
     }
 
     .hero-title {
@@ -271,7 +271,17 @@ html {
       width: 350px;
       height: 350px;
     }
+    .fj-hero-avatar {
+      background-image: url("./img/dan.jpg");
 
+      border: 5px solid rgb(255, 255, 255);
+      border-radius: 50%;
+      width: 250px;
+      height: 250px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center center;
+    }
     @media screen and (max-width: 768px) {
       .hero-image-container {
         display: none;

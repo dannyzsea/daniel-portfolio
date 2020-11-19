@@ -8,7 +8,7 @@ const {
 const { portfolioTypes ,userTypes} = require('./types');
 const User = require('./models/User');
 const Portfolio = require('./models/Portfolio');
-
+const { buildAuthContext } = require('./context');
 
 exports.createApolloServer = () => {
   // Construct a schema, using GRAPHQL schema language
@@ -24,8 +24,8 @@ exports.createApolloServer = () => {
     updatePortfolio(id: ID, input: PortfolioInput): Portfolio
     deletePortfolio(id: ID): ID
     signUp(input:SignUpInput):String
-    signIn:String
-    signOut:String
+    signIn(input: SignInInput): User
+    signOut:Boolean
   }`);
 
   // The root provides a resolver for each API endpoint
@@ -40,7 +40,8 @@ exports.createApolloServer = () => {
 
   const apolloServer = new ApolloServer({
     typeDefs, resolvers,
-    context: () => ({
+    context: ({req}) => ({
+      ...buildAuthContext(req),
       models: {
         Portfolio: new Portfolio(mongoose.model('Portfolio')),
         User: new User(mongoose.model('User'))
