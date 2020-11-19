@@ -1,15 +1,15 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form'
 
 
 const RegisterForm = ({onSubmit}) => {
+
   const { register, handleSubmit } = useForm();
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
         <label htmlFor="avatar">Avatar</label>
         <input
-           ref={register}
+          ref={register}
           type="text"
           className="form-control"
           name="avatar"
@@ -36,7 +36,7 @@ const RegisterForm = ({onSubmit}) => {
       <div className="form-group">
         <label htmlFor="password">Password</label>
         <input
-           ref={register}
+          ref={register}
           type="password"
           className="form-control"
           name="password"
@@ -57,5 +57,4 @@ const RegisterForm = ({onSubmit}) => {
     </form>
   )
 }
-
 export default RegisterForm;

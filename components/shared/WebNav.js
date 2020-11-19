@@ -1,75 +1,79 @@
-import Link from "next/link";
 
+import { useState, useEffect } from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import Link from 'next/link'
+import withApollo from '../../hoc/withApollo';
+import { useLazyGetUser } from '../../apollo/actions';
 
-const WebLink=({children,className,href})=>{
-  return(
+const AppLink = ({children, className, href}) =>
   <Link href={href}>
     <a className={className}>{children}</a>
   </Link>
+
+const WebNav = () => {
+  const [user, setUser] = useState(null);
+  const [hasResponse, setHasResponse] = useState(false);
+  const [getUser, {data, error}] = useLazyGetUser();
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  if (data) {
+    if (data.user && !user) { setUser(data.user); }
+    if (!data.user && user) { setUser(null); }
+    if (!hasResponse) { setHasResponse(true); }
+  }
+
+  return (
+    <div className="navbar-wrapper">
+      <Navbar expand="lg" className="navbar-dark fj-mw9">
+        <AppLink
+          href="/"
+          className="navbar-brand mr-3 font-weight-bold">
+          JavaIsland!
+        </AppLink>
+        <Navbar.Toggle />
+        <Navbar.Collapse>
+          <Nav className="mr-auto">
+            <AppLink href="/portfolios" className="nav-link mr-3">
+              Portfolios
+            </AppLink>
+            <AppLink href="/forum/categories" className="nav-link mr-3">
+              Forum
+            </AppLink>
+            <AppLink href="/Resume" className="mr-3 nav-link">
+              Resume
+            </AppLink>
+          </Nav>
+   
+          { hasResponse &&
+            <Nav>
+              { user &&
+                <>
+                  <span className="nav-link mr-4">Welcome {user.username}</span>
+                  <AppLink href="/logout" className="nav-link btn btn-danger">
+                    Sign Out
+                  </AppLink>
+                </>
+              }
+              { (error || !user) &&
+                <>
+                  <AppLink href="/login" className="mr-3 nav-link">
+                    Sign In
+                  </AppLink>
+                  <AppLink href="/register" className="mr-3 btn btn-success bg-green-2 bright">
+                    Sign Up
+                  </AppLink>
+                </>
+              }
+            </Nav>
+          }
+        </Navbar.Collapse>
+      </Navbar>
+    </div>
   )
 }
 
-const WebNav =()=>{
-    return(
-<div className="navbar-wrapper">
-<nav className="navbar navbar-expand-lg navbar-dark fj-mw9">
-          <WebLink className="navbar-brand mr-3 font-weight-bold" href="/">
-           JavaIsland!
-          </WebLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-  
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav">
-              <li className="nav-item mr-3">
-              <WebLink href="/portfolios" className="nav-link">
-                  Portfolio
-                </WebLink>
-              </li>
-              
-              <li className="nav-item mr-3">
-                <WebLink className="nav-link" href="forum/catagories">
-                  Forum
-                </WebLink>
-              </li>
 
-
-              <li className="nav-item mr-3">
-                <WebLink className="nav-link" href="/resume">
-                  Resume
-                </WebLink>
-              </li>
-            </ul>
-
-
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item mr-3">
-                <WebLink className="nav-link" href="/register">
-                  Sign Up
-                </WebLink>
-              </li>
-
-              <li className="nav-item mr-3">
-                <WebLink
-                  className="nav-link btn btn-success bg-green-2 bright"
-                  href="/Login"
-                >
-                  Sign In
-                </WebLink>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-  )
-}
-export default WebNav;
+export default withApollo(WebNav);

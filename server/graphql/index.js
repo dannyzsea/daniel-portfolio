@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 const { ApolloServer, gql } = require('apollo-server-express');
-
 const {
   portfolioQueries,
   portfolioMutations,
-  userMutations } = require('./resolvers');
-const { portfolioTypes ,userTypes} = require('./types');
-const User = require('./models/User');
-const Portfolio = require('./models/Portfolio');
+  userMutations,
+  userQueries } = require('./resolvers');
+const { portfolioTypes, userTypes } = require('./types');
 const { buildAuthContext } = require('./context');
 
+const Portfolio = require('./models/Portfolio');
+const User = require('./models/User');
 exports.createApolloServer = () => {
   // Construct a schema, using GRAPHQL schema language
   const typeDefs = gql(`
@@ -18,23 +18,26 @@ exports.createApolloServer = () => {
   type Query {
     portfolio(id: ID): Portfolio
     portfolios: [Portfolio]
+    user: User
   }
   type Mutation {
     createPortfolio(input: PortfolioInput): Portfolio
     updatePortfolio(id: ID, input: PortfolioInput): Portfolio
     deletePortfolio(id: ID): ID
-    signUp(input:SignUpInput):String
+    signUp(input: SignUpInput): String
     signIn(input: SignInInput): User
-    signOut:Boolean
+    signOut: Boolean
   }`);
 
   // The root provides a resolver for each API endpoint
   const resolvers = {
     Query: {
-      ...portfolioQueries
+      ...portfolioQueries,
+      ...userQueries
     },
     Mutation: {
-      ...portfolioMutations
+      ...portfolioMutations,
+      ...userMutations
     }
   }
 
@@ -48,6 +51,5 @@ exports.createApolloServer = () => {
       }
     })
   })
-
   return apolloServer;
 }

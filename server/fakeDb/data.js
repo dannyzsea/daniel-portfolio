@@ -11,11 +11,11 @@ const data = {
     {
       _id: user1Id,
       avatar: "https://f0.pngfuel.com/png/312/283/man-face-clip-art-png-clip-art-thumbnail.png",
-      email: "filip@gmail.com",
-      name: "Filip Jerga",
-      username: "Filip99",
-      info: "Hello I am Filip and I am a developer!",
-      password: "filipfilip",
+      email: "dannyz@gmail.com",
+      name: "Daniel Hagos",
+      username: "dannycode",
+      info: "Hello I am Danny!",
+      password: "adminpassword",
       role: "admin"
     },
     {

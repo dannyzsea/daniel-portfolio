@@ -19,8 +19,6 @@ const Banner=()=>{
            
           </div>
           
-          
-        
           <div className="hero-right col-md-6">
           <h2 className="white hero-subtitle">
              Check my portfolio and youtube videos!
