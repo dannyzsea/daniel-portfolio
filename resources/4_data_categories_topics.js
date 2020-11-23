@@ -17,7 +17,7 @@ forumCategories: [
       subTitle: 'Just funny developing stuff',
       slug: 'developer-jokes'
     }
-  ],
+  ]
   topics: [
     {
       _id: "",

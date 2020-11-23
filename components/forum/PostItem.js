@@ -1,4 +1,4 @@
-import { fromNow } from '../../utils/functions';
+import { fromNow } from '@/utils/functions';
 
 
 const PostItem = ({post, onReply, className = '', canCreate = false}) => {

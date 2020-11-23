@@ -1,4 +1,4 @@
-import { fromNow, shortify } from '../../utils/functions';
+import { fromNow, shortify } from '@/utils/functions';
 import Link from 'next/link';
 
 const TopicLink = ({topic}) =>

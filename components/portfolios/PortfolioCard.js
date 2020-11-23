@@ -2,7 +2,7 @@
 
 
 
-import {formatDate} from "../../utils/functions"
+import {formatDate} from "@/utils/functions"
 
 const PortfolioCard=({portfolio})=>{
 return(

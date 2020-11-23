@@ -1,5 +1,5 @@
 
-import PortfolioCard from "@/components/shared/portfolios/PortfolioCard";
+import PortfolioCard from "@/components/portfolios/PortfolioCard";
 import withApollo from "@/hoc/withApollo";
 import { getDataFromTree } from '@apollo/react-ssr';
 import { useGetPortfolios } from "@/apollo/actions";
