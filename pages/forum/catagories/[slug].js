@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import BaseLayout from '../../../layouts/BaseLayout';
-import { useGetTopicsByCategory, useGetUser, useCreateTopic } from '../../../apollo/actions';
+import BaseLayout from '@/layouts/BaseLayout';
+import { useGetTopicsByCategory, useGetUser, useCreateTopic } from '@/apollo/actions';
 import { useRouter } from 'next/router';
-import withApollo from '../../../hoc/withApollo';
+import withApollo from '@/hoc/withApollo';
 import { getDataFromTree } from '@apollo/react-ssr';
-import Replier from '../../../components/shared/Replier';
+import Replier from '@/components/shared/Replier';
 
 const useInitialData = () => {
   const router = useRouter();

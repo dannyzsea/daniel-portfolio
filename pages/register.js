@@ -1,9 +1,9 @@
-import RegisterForm from '../components/forms/RegisterForm';
+import RegisterForm from '@/components/forms/RegisterForm';
 import { Mutation } from 'react-apollo';
-import { SIGN_UP } from '../apollo/queries';
-import withApollo from '../hoc/withApollo';
-import Redirect from '../components/shared/Redirect';
-import BaseLayout from "../layouts/BaseLayout";
+import { SIGN_UP } from '@/apollo/queries';
+import withApollo from '@/hoc/withApollo';
+import Redirect from '@/components/shared/Redirect';
+import BaseLayout from "@/layouts/BaseLayout";
 
 
 const Register = () => {

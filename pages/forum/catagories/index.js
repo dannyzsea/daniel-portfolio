@@ -1,6 +1,6 @@
-import BaseLayout from '../../../layouts/BaseLayout';
-import { useGetForumCategories } from '../../../apollo/actions';
-import withApollo from '../../../hoc/withApollo';
+import BaseLayout from '@/layouts/BaseLayout';
+import { useGetForumCategories } from '@/apollo/actions';
+import withApollo from '@/hoc/withApollo';
 import { getDataFromTree } from '@apollo/react-ssr';
 import Link from 'next/link';
 

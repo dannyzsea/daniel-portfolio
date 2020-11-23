@@ -1,6 +1,6 @@
-import withApollo from '../hoc/withApollo';
-import withAuth from '../hoc/withAuth';
-import BaseLayout from "../layouts/BaseLayout";
+import withApollo from '@/hoc/withApollo';
+import withAuth from '@/hoc/withAuth';
+import BaseLayout from "@/layouts/BaseLayout";
 
 const Secret = withAuth(() => {
   return (

@@ -1,17 +1,17 @@
 import { useState, useRef } from 'react';
-import BaseLayout from '../../../layouts/BaseLayout';
+import BaseLayout from '@/layouts/BaseLayout';
 import {
   useGetTopicBySlug,
   useGetPostsByTopic,
   useGetUser,
-  useCreatePost } from '../../../apollo/actions';
+  useCreatePost } from '@/apollo/actions';
 import { useRouter } from 'next/router';
-import withApollo from '../../../hoc/withApollo';
+import withApollo from '@/hoc/withApollo';
 import { getDataFromTree } from '@apollo/react-ssr';
-import PostItem from '../../../components/forum/PostItem';
-import Replier from '../../../components/shared/Replier';
+import PostItem from '@/components/forum/PostItem';
+import Replier from '@/components/shared/Replier';
 import { toast } from 'react-toastify';
-import AppPagination from '../../../components/shared/Pagination';
+import AppPagination from '@/components/shared/Pagination';
 
 const useInitialData = (slug, pagination) => {
   const { data: dataT } = useGetTopicBySlug({variables: { slug }});

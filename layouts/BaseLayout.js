@@ -1,5 +1,5 @@
-import WebNav from '../components/shared/WebNav';
-import Banner from '../components/shared/Banner';
+import WebNav from '@/components/shared/WebNav';
+import Banner from '@/components/shared/Banner';
 import { ToastContainer } from "react-toastify";
 
 const BaseLayout = ({children, page = ''}) => {

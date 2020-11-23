@@ -1,10 +1,10 @@
-import LoginForm from '../components/forms/LoginForm';
-import withApollo from '../hoc/withApollo';
-import { useSignIn } from '../apollo/actions';
-import Redirect from '../components/shared/Redirect';
-import BaseLayout from "../layouts/BaseLayout";
+import LoginForm from '@/components/forms/LoginForm';
+import withApollo from '@/hoc/withApollo';
+import { useSignIn } from '@/apollo/actions';
+import Redirect from '@/components/shared/Redirect';
+import BaseLayout from "@/layouts/BaseLayout";
 import { useRouter } from 'next/router';
-import messages from '../variables/message';
+import messages from '@/variables/message';
 import { useEffect, useRef } from 'react';
 
 

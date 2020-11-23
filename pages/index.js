@@ -1,11 +1,11 @@
-import { useGetHighlight } from '../apollo/actions';
-import withApollo from '../hoc/withApollo';
+import { useGetHighlight } from '@/apollo/actions';
+import withApollo from '@/hoc/withApollo';
 import { getDataFromTree } from '@apollo/react-ssr';
 
-import PortfolioCard from '../components/portfolios/PortfolioCard';
-import BaseLayout from '../layouts/BaseLayout';
+import PortfolioCard from '@/components/portfolios/PortfolioCard';
+import BaseLayout from '@/layouts/BaseLayout';
 import Link from 'next/link';
-import TopicLink from '../components/forum/TopicLink';
+import TopicLink from '@/components/forum/TopicLink';
 
 const useGetInitialData = () => {
   const { data } = useGetHighlight({variables: {limit: 3}});

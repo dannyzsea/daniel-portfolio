@@ -1,11 +1,11 @@
 
-import withApollo from '../../../hoc/withApollo';
-import withAuth from '../../../hoc/withAuth';
-import BaseLayout from '../../../layouts/BaseLayout';
+import withApollo from '@/hoc/withApollo';
+import withAuth from '@/hoc/withAuth';
+import BaseLayout from '@/layouts/BaseLayout';
 import { Card, Button } from 'react-bootstrap';
-import { useGetUserPortfolios, useDeletePortfolio } from '../../../apollo/actions';
+import { useGetUserPortfolios, useDeletePortfolio } from '@/apollo/actions';
 import { getDataFromTree } from '@apollo/react-ssr';
-import { formatDate } from '../../../utils/functions';
+import { formatDate } from '@/utils/functions';
 import Link from 'next/link';
 
 

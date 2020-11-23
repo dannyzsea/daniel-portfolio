@@ -1,9 +1,9 @@
-import PortfolioForm from '../../../components/forms/PortfolioForm';
-import withApollo from '../../../hoc/withApollo';
-import withAuth from '../../../hoc/withAuth';
-import BaseLayout from '../../../layouts/BaseLayout';
+import PortfolioForm from '@/components/forms/PortfolioForm';
+import withApollo from '@/hoc/withApollo';
+import withAuth from '@/hoc/withAuth';
+import BaseLayout from '@/layouts/BaseLayout';
 import { useRouter } from 'next/router';
-import { useGetPortfolio, useUpdatePortfolio } from '../../../apollo/actions';
+import { useGetPortfolio, useUpdatePortfolio } from '@/apollo/actions';
 
 const PortfolioEdit = () => {
   const router = useRouter();

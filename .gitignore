@@ -1,6 +1,7 @@
 /server/config/dev.js
 
 # dependencies
+/public
 /node_modules
 /.pnp
 .pnp.js
