@@ -1,7 +1,6 @@
-const config = require('../config/dev');
+const config = require('../config');
 const fakeDb = require('./FakeDb');
 const mongoose = require('mongoose');
-
 mongoose.connect(config.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

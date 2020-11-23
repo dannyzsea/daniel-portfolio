@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
+const Schema = mongoose.Schema;
+
 const userSchema = new Schema({
   avatar: String,
   email: {
@@ -35,6 +36,7 @@ const userSchema = new Schema({
   info: String,
   createdAt: { type: Date, default: Date.now }
 })
+
 userSchema.pre('save', function(next) {
   const user = this;
 
@@ -49,6 +51,7 @@ userSchema.pre('save', function(next) {
     });
   });
 })
+
 userSchema.methods.validatePassword = function(candidatePassword, done) {
   bcrypt.compare(candidatePassword, this.password, function(error, isSuccess) {
     if (error) { return done(error); }
@@ -56,4 +59,5 @@ userSchema.methods.validatePassword = function(candidatePassword, done) {
     return done(null, isSuccess);
   })
 }
+
 module.exports = mongoose.model('User', userSchema);

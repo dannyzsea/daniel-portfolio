@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
 
-
 const RegisterForm = ({onSubmit}) => {
 
   const { register, handleSubmit } = useForm();
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
@@ -57,4 +57,5 @@ const RegisterForm = ({onSubmit}) => {
     </form>
   )
 }
+
 export default RegisterForm;

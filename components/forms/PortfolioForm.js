@@ -1,7 +1,33 @@
 import { useForm } from 'react-hook-form';
+import DatePicker from "react-datepicker";
+import { useEffect, useState } from 'react';
 
-const PortfolioForm = ({onSubmit}) => {
-  const { handleSubmit, register } = useForm();
+const PortfolioForm = ({onSubmit, initialData = {}}) => {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const { handleSubmit, register, setValue } = useForm({defaultValues: initialData});
+
+  useEffect(() => {
+    register({name: 'startDate'});
+    register({name: 'endDate'});
+  }, [register])
+
+  useEffect(() => {
+    const { startDate, endDate } = initialData;
+
+    if (startDate) {
+      setStartDate(new Date(parseInt(startDate, 10)));
+    }
+
+    if (endDate) {
+      setEndDate(new Date(parseInt(endDate, 10)));
+    }
+  }, [initialData])
+
+  const handleDateChange = (dateType, setDate) => date => {
+    setValue(dateType, (date && new Date(date.setHours(0,0,0,0)).toISOString()) || date);
+    setDate(date);
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -23,6 +49,16 @@ const PortfolioForm = ({onSubmit}) => {
           type="text"
           className="form-control"
           id="company"/>
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="city">Company Website</label>
+        <input
+          ref={register}
+          name="companyWebsite"
+          type="text"
+          className="form-control"
+          id="companyWebsite"/>
       </div>
 
       <div className="form-group">
@@ -59,22 +95,43 @@ const PortfolioForm = ({onSubmit}) => {
 
       <div className="form-group">
         <label htmlFor="street">Start Date</label>
-        <input
-          ref={register}
-          name="startDate"
-          type="text"
-          className="form-control"
-          id="startDate"/>
+        <div>
+          <DatePicker
+            showYearDropdown
+            selected={startDate}
+            onChange={handleDateChange('startDate', setStartDate)}
+          />
+        </div>
       </div>
 
       <div className="form-group">
         <label htmlFor="street">End Date</label>
-        <input
-          ref={register}
-          name="endDate"
-          type="text"
-          className="form-control"
-          id="endDate"/>
+        <div>
+          <DatePicker
+            showYearDropdown
+            disabled={!endDate}
+            selected={endDate}
+            onChange={handleDateChange('endDate', setEndDate)}
+          />
+        </div>
+      </div>
+      <div className="form-group">
+        { endDate &&
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => handleDateChange('endDate', setEndDate)(null)}>
+            No End Date
+          </button>
+        }
+        { !endDate &&
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={() => handleDateChange('endDate', setEndDate)(new Date())}>
+            Set End Date
+          </button>
+        }
       </div>
 
       <button

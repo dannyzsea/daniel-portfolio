@@ -8,6 +8,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
 const handle = app.getRequestHandler();
 
+
 // Connect to DB
 const db = require('./database')
 db.connect();
@@ -20,6 +21,7 @@ app.prepare().then(() => {
 
 
  const apolloServer = require('./graphql').createApolloServer();
+
 apolloServer.applyMiddleware({app: server})
 
 server.use(cors());

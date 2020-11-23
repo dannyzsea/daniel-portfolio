@@ -1,12 +1,12 @@
 
 import { useState, useEffect } from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Link from 'next/link'
 import withApollo from '../../hoc/withApollo';
 import { useLazyGetUser } from '../../apollo/actions';
 
-const AppLink = ({children, className, href}) =>
-  <Link href={href}>
+const AppLink = ({children, className, href, as}) =>
+  <Link href={href} as={as}>
     <a className={className}>{children}</a>
   </Link>
 
@@ -31,7 +31,7 @@ const WebNav = () => {
         <AppLink
           href="/"
           className="navbar-brand mr-3 font-weight-bold">
-          JavaIsland!
+          JavaIsland
         </AppLink>
         <Navbar.Toggle />
         <Navbar.Collapse>
@@ -46,20 +46,34 @@ const WebNav = () => {
               Resume
             </AppLink>
           </Nav>
-   
           { hasResponse &&
             <Nav>
               { user &&
                 <>
-                  <span className="nav-link mr-4">Welcome {user.username}</span>
-                  <AppLink href="/logout" className="nav-link btn btn-danger">
+                  <span className="nav-link mr-2">Welcome {user.username}</span>
+                  { (user.role === 'admin' || user.role === 'instructor') &&
+                    <NavDropdown className="mr-2" title="Manage" id="basic-nav-dropdown">
+                      <>
+                        <AppLink href="/portfolios/new" className="dropdown-item">
+                          Create Portfolio
+                        </AppLink>
+                        <AppLink
+                          href="/instructor/[id]/dashboard"
+                          as={`/instructor/${user._id}/dashboard`}
+                          className="dropdown-item">
+                          Dashboard
+                        </AppLink>
+                      </>
+                    </NavDropdown>
+                  }
+                  <AppLink href="/Logout" className="nav-link btn btn-danger">
                     Sign Out
                   </AppLink>
                 </>
               }
               { (error || !user) &&
                 <>
-                  <AppLink href="/login" className="mr-3 nav-link">
+                  <AppLink href="/Login" className="mr-3 nav-link">
                     Sign In
                   </AppLink>
                   <AppLink href="/register" className="mr-3 btn btn-success bg-green-2 bright">
@@ -74,6 +88,5 @@ const WebNav = () => {
     </div>
   )
 }
-
 
 export default withApollo(WebNav);

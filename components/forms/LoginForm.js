@@ -1,3 +1,4 @@
+
 import { useForm } from 'react-hook-form'
 
 const LoginForm = ({onSubmit, loading}) => {
@@ -23,7 +24,6 @@ const LoginForm = ({onSubmit, loading}) => {
           className="form-control"
           id="password" />
       </div>
-    
       { loading &&
         'Signing in...'
       }
@@ -36,4 +36,6 @@ const LoginForm = ({onSubmit, loading}) => {
     </form>
   )
 }
+
+
 export default LoginForm;
