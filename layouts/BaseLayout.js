@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 const BaseLayout = ({children, page = ''}) => {
 
   const isHomePage = () => page === 'Home'
-
+  const today = new Date();
   return (
     <div className="portfolio-app">
       <WebNav />
@@ -14,10 +14,14 @@ const BaseLayout = ({children, page = ''}) => {
         {children}
       </div>
       {/* FOOTER STARTS */}
-      { isHomePage() &&
+      { 
+      
+        isHomePage() &&
         <footer id="sticky-footer" className="py-4 bg-black text-white-50 py-3">
           <div className="container text-center">
-            <small>Copyright &copy; Your Website</small>
+            <small>Copyright &copy; <span>
+   {today.getFullYear()} Developed by  Daniel Hagos!
+</span></small>
           </div>
         </footer>
       }
