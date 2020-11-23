@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Link from 'next/link'
-import withApollo from '../../hoc/withApollo';
-import { useLazyGetUser } from '../../apollo/actions';
+import withApollo from '@/hoc/withApollo';
+import { useLazyGetUser } from '@/apollo/actions';
 
 const AppLink = ({children, className, href, as}) =>
   <Link href={href} as={as}>

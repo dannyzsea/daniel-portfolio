@@ -1,7 +1,7 @@
 
-import { useGetUser } from '../apollo/actions';
+import { useGetUser } from '@/apollo/actions';
 import Redirect from "../components/shared/Redirect";
-import SpinningLoader from "../components/shared/Loader";
+import SpinningLoader from "@/components/shared/Loader";
 
 export default (WrappedComponent, role, options = {ssr: false}) => {
   function WithAuth(props) {
