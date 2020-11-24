@@ -42,7 +42,7 @@ const WebNav = () => {
             <AppLink href="/forum/categories" className="nav-link mr-3">
               Forum
             </AppLink>
-            <AppLink href="/Resume" className="mr-3 nav-link">
+            <AppLink href="/resume" className="mr-3 nav-link">
               Resume
             </AppLink>
           </Nav>
@@ -66,17 +66,17 @@ const WebNav = () => {
                       </>
                     </NavDropdown>
                   }
-                  <AppLink href="/Logout" className="nav-link btn btn-danger">
+                  <AppLink href="/logout" className="logout">
                     Sign Out
                   </AppLink>
                 </>
               }
               { (error || !user) &&
                 <>
-                  <AppLink href="/Login" className="mr-3 nav-link">
+                  <AppLink href="/login" className="login">
                     Sign In
                   </AppLink>
-                  <AppLink href="/register" className="mr-3 btn btn-success bg-green-2 bright">
+                  <AppLink href="/register" className="register">
                     Sign Up
                   </AppLink>
                 </>

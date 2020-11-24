@@ -1,3 +1,4 @@
+
 import BaseLayout from '@/layouts/BaseLayout';
 import { useGetForumCategories } from '@/apollo/actions';
 import withApollo from '@/hoc/withApollo';

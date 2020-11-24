@@ -140,12 +140,20 @@ html {
 }
 
 // General Components START
+.card {
+  height: 25rem;
+  margin: 2rem;
+}
 
+.card-body {
+  background-image: linear-gradient(170deg, #001f3f98 0%, #001f3f 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 54%);
+  color: white;
+}
 .card:hover {
   background-color: $gray-10;
   cursor: pointer;
 }
-
 .card-link {
   color: inherit;
   display: block;
@@ -156,6 +164,9 @@ html {
   }
 }
 
+.card-footer {
+  background-color: grey;
+}
 .avatar-container {
   display: flex;
   flex-direction: row;
@@ -190,6 +201,7 @@ html {
 
   .nav-link {
     font-size: 14px;
+    color: white;
   }
 
   &-brand {
@@ -219,9 +231,6 @@ html {
   .card-body {
     height: 150px;
   }
-}
-.col-md-4 {
-  border-radius: 25px;
 }
 
 .page-wrapper {
@@ -278,7 +287,7 @@ html {
       height: 350px;
     }
     .fj-hero-avatar {
-      background-image: url("./img/dan.jpg");
+      background-image: url("/img/dan.jpg");
 
       border: 5px solid rgb(255, 255, 255);
       border-radius: 50%;
@@ -702,7 +711,32 @@ html {
     color: #00aeff;
   }
 }
+//buttons
 
+.register {
+  color: white;
+  padding-top: 1px;
+  font-weight: 700;
+  margin: 10px;
+}
+
+// login
+.login {
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px;
+}
+
+//logout
+.logout {
+  color: white;
+  padding-top: 4px;
+}
+
+// button end
 .bwm-form {
   form {
     margin-bottom: 10px;
