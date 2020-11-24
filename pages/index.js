@@ -49,7 +49,7 @@ const Home = () => {
       <section className="section-title">
         <div className="px-2">
           <div className="pt-5 pb-4">
-            <h1>Ask Me</h1>
+            <h1></h1>
           </div>
         </div>
       </section>
@@ -63,10 +63,10 @@ const Home = () => {
           }
         </div>
       </section>
-      <Link href="/forum/categories">
+      {/* <Link href="/forum/categories">
         <a className="btn btn-main bg-blue ttu">See More Posts</a>
       </Link>
-      {/* HOME PAGE ENDS */}
+      HOME PAGE ENDS */}
     </BaseLayout>
   )
 }

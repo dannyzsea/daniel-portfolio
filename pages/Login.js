@@ -1,14 +1,11 @@
+import { useEffect, useRef } from 'react';
 import LoginForm from '@/components/forms/LoginForm';
 import withApollo from '@/hoc/withApollo';
 import { useSignIn } from '@/apollo/actions';
-import Redirect from '@/components/shared/Redirect';
-import BaseLayout from "@/layouts/BaseLayout";
 import { useRouter } from 'next/router';
-import messages from '@/variables/message';
-import { useEffect, useRef } from 'react';
-
-
-
+import Redirect from '@/components/shared/Redirect';
+import BaseLayout from '@/layouts/BaseLayout';
+import messages from '../variables/message';
 
 const Login = () => {
   const disposeId = useRef(null);
@@ -17,7 +14,7 @@ const Login = () => {
   const { message } = router.query;
 
   const disposeMessage = () => {
-    router.replace('/Login', '/Login', {shallow: true});
+    router.replace('/login', '/login', {shallow: true});
   }
 
   useEffect(() => {

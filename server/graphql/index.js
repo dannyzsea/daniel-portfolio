@@ -13,7 +13,7 @@ const { buildAuthContext } = require('./context');
 
 const Portfolio = require('./models/Portfolio');
 const User = require('./models/User');
-const ForumCategory = require('./models/ForumCatagory');
+const ForumCategory = require('./models/ForumCategory');
 const Topic = require('./models/Topic');
 const Post = require('./models/Post');
 

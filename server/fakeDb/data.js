@@ -26,12 +26,12 @@ const data = {
   users: [
     {
       _id: user1Id,
-      avatar: "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png",
-      email: "filip99@gmail.com",
-      name: "Filip Jerga",
-      username: "Filip99",
-      info: "Hello I am Filip and I am a developer!",
-      password: "filipfilip",
+      avatar:"https://cdn0.iconfinder.com/data/icons/user-worker-employee-business-avatars/100/26-1User_13-512.png",
+      email: "javatechisland@gmail.com",
+      name: "Daniel Hagos",
+      username: "javaisland",
+      info: "Hello I am Daniel and I am a developer!",
+      password: "adminadmin",
       role: "admin"
     },
     {

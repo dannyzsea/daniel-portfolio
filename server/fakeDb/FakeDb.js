@@ -1,9 +1,10 @@
+const { portfolios, users, forumCategories, topics, posts } = require('./data');
 
-const { portfolios, users,forumCategories, topics  } = require('./data');
-const Topic = require('../database/models/topic');
 const Portfolio = require('../database/models/portfolio');
 const User = require('../database/models/user');
 const ForumCategory = require('../database/models/forumCategory');
+const Topic = require('../database/models/topic');
+const Post = require('../database/models/post');
 
 class FakeDb {
 
