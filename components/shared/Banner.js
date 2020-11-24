@@ -14,7 +14,7 @@ const Banner=()=>{
               </a>
             </div>
             <h2 className="white hero-subtitle">
-             ECE and fullstack Engineer!
+             Fullstack Engineer!
             </h2>
            
           </div>

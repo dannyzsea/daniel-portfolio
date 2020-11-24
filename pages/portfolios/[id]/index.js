@@ -15,8 +15,8 @@ const PortfolioDetail = ({query}) => {
             <h1 className="display-3">{portfolio.title}</h1>
             <p className="lead">{portfolio.jobTitle}</p>
             <p>
-              <a className="btn btn-lg btn-success" href={portfolio.companyWebsite} role="button">
-                See Company</a>
+              <a className="demo" href={portfolio.companyWebsite} role="button">
+                Check Demo</a>
               </p>
           </div>
           <div className="row marketing">
