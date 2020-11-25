@@ -4,6 +4,8 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Link from 'next/link'
 import withApollo from '@/hoc/withApollo';
 import { useLazyGetUser } from '@/apollo/actions';
+import LockOpenRoundedIcon from '@material-ui/icons/LockOpenRounded';
+import LockIcon from '@material-ui/icons/Lock';
 
 const AppLink = ({children, className, href, as}) =>
   <Link href={href} as={as}>
@@ -36,13 +38,14 @@ const WebNav = () => {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mr-auto">
-            <AppLink href="/portfolios" className="nav-link mr-3">
-              Portfolios
+            <AppLink href="/portfolios" className="nav-link "
+            activeClassName="nav-link-active">
+             Portfolios
             </AppLink>
-            <AppLink href="/forum/categories" className="nav-link mr-3">
-              Forum
+            <AppLink href="/forum/categories" className="nav-link ">
+             Forum
             </AppLink>
-            <AppLink href="/resume" className="mr-3 nav-link">
+            <AppLink href="/resume" className="nav-link ">
               Resume
             </AppLink>
           </Nav>
@@ -67,6 +70,7 @@ const WebNav = () => {
                     </NavDropdown>
                   }
                   <AppLink href="/logout" className="logout">
+                  <LockIcon className="logout_icon"/>
                     Sign Out
                   </AppLink>
                 </>
@@ -74,6 +78,7 @@ const WebNav = () => {
               { (error || !user) &&
                 <>
                   <AppLink href="/login" className="login">
+                  <LockOpenRoundedIcon  className="login_icon"/>
                     Sign In
                   </AppLink>
                   <AppLink href="/register" className="register">

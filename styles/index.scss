@@ -172,8 +172,11 @@ html {
 .card-footer {
   background-color: rgba(12, 7, 73, 0.281);
 }
-
-.card-footer > card-text {
+.card-text {
+  color: white;
+  font-weight: 700;
+}
+.card-footer {
   color: white;
   font-weight: 600px;
 }
@@ -215,6 +218,9 @@ html {
     color: white;
   }
 
+  .nav-link-active {
+    background-color: yellow;
+  }
   &-brand {
     font-size: 24px;
   }
@@ -301,7 +307,7 @@ html {
     .fj-hero-avatar {
       background-image: url("/img/dan.jpg");
 
-      border: 10px solid rgb(255, 255, 255);
+      border: 5px solid rgb(255, 255, 255);
       border-radius: 50%;
       width: 250px;
       height: 250px;
@@ -741,13 +747,20 @@ html {
   text-decoration: none;
   padding: 10px;
 }
+.login_icon {
+  color: white;
+  margin-right: 5px;
+}
 
 //logout
 .logout {
   color: white;
-  padding-top: 4px;
+  padding-top: 5px;
 }
-
+.logout_icon {
+  color: white;
+  margin-right: 5px;
+}
 // button end
 .bwm-form {
   form {
@@ -1209,3 +1222,239 @@ html {
 }
 
 // UI Spinner Loader END
+
+// resume
+.r-icon {
+  fill: currentColor;
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+}
+
+a {
+  color: #323232;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container_resume {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 30px;
+  background: rgba(201, 195, 195, 0.678);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sec {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 20px;
+  padding: 20px 0;
+  border-bottom: 5px solid rgb(255, 254, 254);
+  background-color: #022344d3;
+  color: rgba(255, 255, 255, 0.678);
+  &:last-child {
+    border-bottom: none;
+  }
+  &-title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+}
+.sec .section-title {
+  padding: 20px;
+  color: white;
+  font-weight: 700;
+}
+.sec .date {
+  padding: 20px;
+}
+.sec .interests-container {
+  padding: 20px;
+}
+.sec .body {
+  background-color: rgba(240, 236, 236, 0.363);
+  border-radius: 25px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.referal {
+  background-color: rgba(240, 236, 236, 0.363);
+  border-radius: 25px;
+  margin: 20px;
+  padding: 20px;
+}
+/***********************************
+* =Main Info
+***********************************/
+
+.r_avatar {
+  width: 130px;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.my-r-name {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 800;
+  margin: 5px;
+  color: white;
+  padding-left: 40px;
+}
+
+.my-r-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  padding-left: 40px;
+}
+
+.r_links {
+  display: flex;
+  margin: 10px 0 20px 0;
+}
+
+.r_link_item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.r_link_item a {
+  color: rgb(15, 200, 224);
+}
+.r-description {
+  padding: 25px;
+}
+.r_link_item svg {
+  margin-right: 6px;
+}
+
+/***********************************
+* =Experience
+***********************************/
+
+.job {
+  // padding-bottom: 24px;
+  // margin-bottom: 24px;
+  // border-bottom: 5px solid rgb(253, 252, 252);
+  background-color: rgba(240, 236, 236, 0.363);
+  border-radius: 25px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.job:last-child {
+  border-bottom: none;
+}
+
+.job-title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.job-company {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+/***********************************
+* =Skills
+***********************************/
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+  margin-bottom: 24px;
+  text-decoration: none;
+  margin: 10px;
+}
+.skills-container img {
+  height: 35px;
+  opacity: 0.75;
+  padding: 5px;
+}
+
+.skills-container ul {
+  margin-left: 20px;
+  list-style-type: disc;
+  list-style-type: none;
+  padding: 15px;
+}
+.skills-container li {
+  list-style-type: none;
+}
+.skills-container {
+  background-color: rgba(240, 236, 236, 0.363);
+  border-radius: 25px;
+  margin: 20px;
+}
+.interests-container {
+  background-color: rgba(240, 236, 236, 0.363);
+  border-radius: 25px;
+  margin: 20px;
+}
+.daniel {
+  background-color: rgba(240, 236, 236, 0.363);
+  border-radius: 25px;
+  margin: 20px;
+  padding: 20px;
+}
+/***********************************
+* =Interests
+***********************************/
+
+.interests-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.interests-container img {
+  height: 35px;
+  opacity: 0.75;
+}
+
+/***********************************
+* =References
+***********************************/
+
+.reference {
+  font-size: 16px;
+}
+
+.reference-details {
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    grid-template-columns: 1fr;
+  }
+
+  .r_links,
+  .job-title-container {
+    flex-direction: column;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .interests-container {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .interests-container img {
+    margin-right: 32px;
+    margin-bottom: 16px;
+  }
+}
