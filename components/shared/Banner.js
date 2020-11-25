@@ -23,11 +23,7 @@ const Banner=()=>{
           <h2 className="white hero-subtitle">
              Check my portfolio and youtube videos!
             </h2>
-            <div className="button-container">
-              <a href="" className="btn btn-main bg-blue ttu">
-                See my work
-              </a>
-            </div>
+          
           </div>
         </div>
       </section>

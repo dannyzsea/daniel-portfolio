@@ -254,13 +254,21 @@ html {
   padding-bottom: 60px;
 }
 
-#sticky-footer {
-  background-color: #141618;
-  // position: absolute;
-  // bottom: 0;
-  // left: 0;
+.sticky-footer {
+  display: flex;
+  background-color: #001f3f;
+  color: white;
+  align-items: center;
 }
-
+.sticky-footer img {
+  flex-direction: row;
+  max-height: 60px;
+  max-width: 60px;
+  padding: 10px;
+}
+.sticky-footer a {
+  padding: 10px;
+}
 .fj-hero {
   padding: 80px 40px;
   display: flex;

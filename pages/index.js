@@ -6,6 +6,7 @@ import PortfolioCard from '@/components/portfolios/PortfolioCard';
 import BaseLayout from '../layouts/BaseLayout';
 import Link from 'next/link';
 import TopicLink from '@/components/forum/TopicLink';
+import { blue } from '@material-ui/core/colors';
 
 const useGetInitialData = () => {
   const { data } = useGetHighlight({variables: {limit: 3}});
@@ -44,7 +45,7 @@ const Home = () => {
         </div>
       </section>
       <Link href="/portfolios">
-        <a className="btn btn-main bg-blue ttu">See More Portfolios</a>
+        <a className="btn" style={{color:"blue"}}>See More Portfolios</a>
       </Link>
       <section className="section-title">
         <div className="px-2">
