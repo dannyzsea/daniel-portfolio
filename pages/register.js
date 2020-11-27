@@ -3,8 +3,7 @@ import { Mutation } from 'react-apollo';
 import { SIGN_UP } from '@/apollo/queries';
 import withApollo from '@/hoc/withApollo';
 import Redirect from '@/components/shared/Redirect';
-import BaseLayout from "@/layouts/BaseLayout";
-
+import BaseLayout from '@/layouts/BaseLayout';
 
 const Register = () => {
 
@@ -25,7 +24,7 @@ const Register = () => {
                   <RegisterForm onSubmit={registerData => {
                     signUpUser({variables: registerData})
                   }} />
-                  { data && data.signUp && <Redirect to="/Login" query={{message: 'LOGGED_IN'}} /> }
+                  { data && data.signUp && <Redirect to="/login" query={{message: 'LOGGED_IN'}} /> }
                   { error && <div className="alert alert-danger">{errorMessage(error)}</div>}
                 </>
               }

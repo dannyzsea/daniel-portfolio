@@ -1,4 +1,4 @@
-
+import Link from 'next/link';
 
 const Banner=()=>{
     return(<div>
@@ -20,9 +20,22 @@ const Banner=()=>{
           </div>
           
           <div className="hero-right col-md-6">
-          <h2 className="white hero-subtitle">
-             Check my portfolio and youtube videos!
-            </h2>
+          <div className="external">
+          <h4>Useful Links!</h4>
+             
+   <Link href="https://www.youtube.com/channel/UCRfNZk60icSpIsgG8Pwtqlg?view_as=subscriber">
+
+
+<a><img src="https://www.flaticon.com/svg/static/icons/svg/174/174883.svg" alt="icon"/></a> 
+ </Link>
+ 
+ <Link href="https://github.com/javaIsland">
+ <a><img src="https://www.flaticon.com/svg/static/icons/svg/733/733609.svg" alt="icon"/></a>
+ </Link>
+
+             
+
+            </div>
           
           </div>
         </div>

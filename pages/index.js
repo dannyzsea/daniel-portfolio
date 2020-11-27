@@ -3,10 +3,10 @@ import withApollo from '@/hoc/withApollo';
 import { getDataFromTree } from '@apollo/react-ssr';
 
 import PortfolioCard from '@/components/portfolios/PortfolioCard';
-import BaseLayout from '../layouts/BaseLayout';
+import BaseLayout from '@/layouts/BaseLayout';
 import Link from 'next/link';
 import TopicLink from '@/components/forum/TopicLink';
-import { blue } from '@material-ui/core/colors';
+
 
 const useGetInitialData = () => {
   const { data } = useGetHighlight({variables: {limit: 3}});

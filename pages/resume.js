@@ -27,7 +27,7 @@ return(
         </div> 
 
         <p className="r-description">
-Motivated Fullstack Java Developer with 2+ years of hands on experience analysis, design, development, of software applications and systems. I Maximized quality and responsiveness of applications by implementing latest technologies. Skilled in using, Core Java, ReactJs, NodeJs, ExpressJs. nextJs, mysql and mongoDB.
+Motivated Fullstack Java Developer with 3+ years of hands on experience analysis, design, development, of software applications and systems. I Maximized quality and responsiveness of applications by implementing latest technologies. Skilled in using, Core Java, ReactJs, NodeJs, ExpressJs. nextJs, mysql and mongoDB.
 </p>
       </div>
     </section>
@@ -42,40 +42,38 @@ Motivated Fullstack Java Developer with 2+ years of hands on experience analysis
               <div className="job-title">Full stak Javascript Web Developer</div>
             </div>
             <div className="date">
-              2017 - Current
+              2017 - Sep 2020
             </div>
           </div> 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum voluptate iure quasi inventore doloremque exercitationem maiores libero corrupti magnam praesentium voluptatem facere optio recusandae sit debitis tenetur beatae, voluptatibus itaque magni, est. Fugiat nostrum nemo fuga nulla modi doloremque maxime.</p>
+          <p>
+          <li>Developed web services components in Nodejs </li>
+            <li>Designed and Developed UI using react with Redux and tested with jasmine.</li>
+            <li>Consulted with fellow developers to understand existing code and come up with efficient solution for given requirement.</li>
+            <li>Studied browser difference and limitation and client-side performance.</li>
+            <li>Leveraged design pattern and principles best practices to refactor code, reduce complexity and improve performance.</li>
+            <li>Developed the UI pages using HTML, Bootstrap, XHTML, DOM, CSS, JSON, JavaScript. </li>
+            <li>Strong knowledge on developing Single Page Application-SPA using ReactJs. </li>
+            <li>We have followed with Agile and Scrum development methodologies</li>
+            <li>Created images, logos and icons that are used across the web pages.</li>
+            <li>Responsible for redesigning the existing site to create new interfaces. </li>
+            <li>Involved in writing SQL Queries, Stored Procedures. Implemented applications in JavaScript. </li>
+            <li>Developed Page layouts, Navigation and presented designs and concepts to the clients and the Management to review.</li>
+            <li>Used Axios promise based http client for the browser and NodeJs.</li>
+            <li>We used postman to dissect Restful APIs made by other team and to test our work progress.</li>
+            <li>Used GIT for version control branching merging and pushing all the project progress</li>
+            </p>
         </div>
-
         <div className="job">
           <div className="job-title-container">
             <div>
-              <div className="job-company">RANABAT ICT </div>
-              <div className="job-title">Team Leader Intern</div>
+              <div className="job-company">CLAIR ICT</div>
+              <div className="job-title">Intern</div>
             </div>
             <div className="date">
               Jan 2015 - Jan 2016
             </div>
           </div> 
-          <p>Responsiblities</p>
-		  <li>Skill One</li>
-            <li>Developed web services components in Nodejs </li>
-            <li>Designed and Developed UI using react with Redux and tested with jasmine.</li>
-            <li>Consulted with fellow developers to understand existing code and come up with efficient solution for given requirement.</li>
-        </div> 
-
-        <div className="job">
-          <div className="job-title-container">
-            <div>
-              <div className="job-company">CLAIR ICT</div>
-              <div className="job-title">Core Java trainer</div>
-            </div>
-            <div className="date">
-              Jan 2013 - Jan 2014
-            </div>
-          </div> 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum voluptate iure quasi inventore doloremque exercitationem maiores libero corrupti magnam praesentium voluptatem facere optio recusandae sit debitis tenetur beatae, voluptatibus itaque magni, est. Fugiat nostrum nemo fuga nulla modi doloremque maxime.</p>
+          
         </div> 
       </div>
     </section>
