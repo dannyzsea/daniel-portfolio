@@ -1,1 +1,2 @@
-# daniel-portfolio
+# Personal ReactJS personl project 
+### daniel-portfolio
